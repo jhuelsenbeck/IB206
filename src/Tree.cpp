@@ -4,8 +4,10 @@
 #include "Tree.hpp"
 
 
+
 Tree::Tree(std::string newickString) {
 
+    // break the Newick string into tokens
     std::vector<std::string> newickTokens = tokenizeNewickString(newickString);
     
     Node* p = nullptr;
@@ -44,6 +46,7 @@ Tree::Tree(std::string newickString) {
         else if (token == ":")
             {
             // the next token is a branch length
+            //double brlen = std::stod(token);
             }
         else 
             {
@@ -108,7 +111,6 @@ void Tree::print(void) {
     for (int i=0; i<downPassSequence.size(); i++)
         std::cout << downPassSequence[i]->getIndex() << " ";
     std::cout << std::endl;
-
 }
 
 void Tree::showNode(Node* p, int indent) {
